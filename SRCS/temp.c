@@ -6,7 +6,27 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 15:15:12 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/13 15:15:15 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/13 17:47:47 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+
+void print_map(t_map *m)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (m->map[i])
+	{
+		j = 0;
+		while (m->map[i][j])
+		{
+			printf("%c", m->map[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+}

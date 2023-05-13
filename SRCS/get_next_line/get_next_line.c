@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:59:39 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/12 17:50:27 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/13 17:37:17 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,10 @@ int	get_next_line_part_two(int fd, char **buf, char **line, int *bufstart)
 	return (bufend);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, char *line)
 {
 	static char	*buf;
 	static int	bufstart;
-	char		*line;
 
 	line = NULL;
 	if (!buf)

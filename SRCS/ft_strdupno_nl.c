@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_strdupno_nl.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 17:17:59 by edelarbr          #+#    #+#             */
-/*   Updated: 2022/12/05 19:16:56 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/05/13 17:28:07 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/13 17:35:28 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+int	ft_strlen_no_nl(char *str)
 {
-	t_list	*new;
-	t_list	*firstlink;
-	t_list	*tmp;
+	int	i;
 
-	firstlink = 0;
-	if (!lst || !f)
+	i = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	return (i);
+}
+
+char	*ft_strdup_no_nl(const char *src)
+{
+	int		i;
+	char	*dup;
+
+	i = -1;
+	dup = malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (!dup)
 		return (NULL);
-	while (lst)
+	while (src[i] && src[i] != '\n')
 	{
-		tmp = (*f)(lst->content);
-		new = ft_lstnew(tmp);
-		if (!new)
-		{
-			free(tmp);
-			ft_lstclear(&firstlink, del);
-			return (NULL);
-		}
-		ft_lstadd_back(&firstlink, new);
-		lst = lst->next;
+		dup[i] = src[i];
+		i++;
 	}
-	return (firstlink);
+	dup[i] = '\0';
+	return (dup);
 }
