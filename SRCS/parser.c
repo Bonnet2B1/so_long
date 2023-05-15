@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:28:31 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/13 20:53:39 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/15 18:43:51 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 int	valid_file(char *file)
 {
 	int	i;
-
+	if (!file)
+		return (0);
 	i = ft_strlen(file) - 1;
 	if (file[i] != 'r' || file[i - 1] != 'e'
 		|| file[i - 2] != 'b' || file[i - 3] != '.')
@@ -25,32 +26,36 @@ int	valid_file(char *file)
 
 int	create_map(char *file, t_map *m)
 {
-	char	*line;
+	char	*map_in_line;
+	char 	*temp;
 	int		fd;
 
 	fd = open(file, O_RDONLY);
-	if (write(fd, "", 0) == -1)
+	if (read(fd, "", 0) == -1)
 		return (0);
-	while (get_next_line(fd, &line))
+	map_in_line = get_next_line(fd);
+	temp = get_next_line(fd);
+	while ( map_in_line && temp)
 	{
-		m->map[++(m->height)] = ft_strdup_no_nl(line);
-		free(line);
+		m->height++;
+		map_in_line = ft_strjoin(map_in_line, temp);
+		temp = get_next_line(fd);
 	}
-	return (1);
+	m->map = ft_split(map_in_line, '\n');
+	return (print_map(m), free(map_in_line), 1);
 }
 
 int	rectangle(t_map *m)
 {
 	int y;
-	y = 0;
+	y = -1;
 	m->width = ft_strlen(m->map[0]);
-	while (m->map[y])
+	while (m->map[++y])
 	{
 		if (m->map[y][0] != '1' || m->map[y][m->width - 1] != '1')
 			return (0);
 		if (ft_strlen(m->map[y]) != m->width)
 			return (0);
-		y++;
 	}
 	return (1);
 }
@@ -81,65 +86,70 @@ int	count_obj(t_map *m)
 	return (1);
 }
 
-void	find_player(t_map *m)
+int	find_player_x(t_map *m)
 {
 	int	x;
 	int	y;
 
-	y = 0;
-	m.map
-	while (m->map[y])
+	y = -1;
+	x = -1;
+	while (m->map[++y])
 	{
-		x = 0;
-		while (m->map[y][x])
+		while (m->map[y][++x])
 		{
 			if (m->map[y][x] == 'P')
-			{
-				m->p_x = x;
-				m->p_y = y;
-				return ;
-			}
-			x++;
+				return (x);
 		}
-		y++;
+		x = -1;
 	}
+	return (0);
 }
 
-int	valid_way(t_map *temp, int p_x, int p_y)
+int	find_player_y(t_map *m)
 {
-	//	if (1), return 0;
-	if (temp->map[p_y][p_x] == '1')
-		return 0;
-	//	if (E) && collecible > 0; return 0;
-	if (temp->map[p_y][p_x] == 'E' && temp->collectible > 0)
-		return (0);
-	//	if (E) && collecible == 0; return 1;
-	if (temp->map[p_y][p_x] == 'E' && temp->collectible == 0)
-		return (freeall(temp), 1);
-	//	if (C), collectible--, transforme en 0;
-	//	|_ valid_way(mm pos)
-	if (temp->map[p_y][p_x] == 'C')
+	int	x;
+	int	y;
+
+	y = -1;
+	x = -1;
+	while (m->map[++y])
 	{
-		temp->map[p_y][p_x] = '1';
-		if(!valid_way(temp, p_x, p_y))
-			return (0);
+		while (m->map[y][++x])
+		{
+			if (m->map[y][x] == 'P')
+				return (y);
+		}
+		x = -1;
 	}
-	//	if (0), transforme en 1;
-	//	|_ if (!valid_way(x--, y) || x++,y || x, y-- || x, y++), return (0);
-	if (temp->map[p_y][p_x] == '0')
-	{
-		temp->map[p_y][p_x] = '1';
-		if(valid_way(temp, p_x--, p_y) || valid_way(temp, p_x++, p_y)
-			|| valid_way(temp, p_x, p_y--) || valid_way(temp, p_x, p_y++))
-			return (freeall(temp), 1);
-		else
-			return (freeall(temp), 0);
-	}
+	return (0);
 }
 
-int	parser(t_map *m)
+int	valid_way(t_map *temp, int x, int y)
+{
+	if (temp->map[y][x] == 'P')
+		temp->map[y][x] = '0';
+	if (temp->map[y][x] == 'C')
+	{
+		temp->collectible--;
+		temp->map[y][x] = '0';
+	}
+	if (temp->map[y][x] == 'E' && temp->collectible == 0)
+		return (freeall(temp), write(1, "Ok\n", 3), 1);
+	if (temp->map[y][x] == '0')
+	{
+		temp->map[y][x] = '1';
+		if(valid_way(temp, (x - 1), y) || valid_way(temp, (x + 1), y)
+			|| valid_way(temp, x, (y - 1)) || valid_way(temp, x, (y + 1)))
+			return (freeall(temp), 1);
+		return(freeall(temp), 0);
+	}
+	return (0);
+}
+
+int	parser(char *file, t_map *m)
 {
 	if (!valid_file(file) || !create_map(file, m) || !rectangle(m)
-		|| !count_obj(m) || !valid_way(temp_init(m), m->p_x, m->p_y))
+		|| !count_obj(m) || !valid_way(temp_init(m), find_player_x(m), find_player_y(m)))
 		return (0);
-}
+	return (1);
+}		

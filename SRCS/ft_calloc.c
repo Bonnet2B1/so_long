@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 17:28:34 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/15 18:53:49 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/05/14 17:01:22 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/14 17:01:38 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	*ft_calloc(size_t size, size_t count)
 {
-	t_map	*m;
-	mlx_t	*mlx;
+	unsigned char	*s;
+	size_t			i;
 
-	if (argc != 2)
-		return (write(2, "Error\n", 6));
-	m = malloc(sizeof(t_map));
-	map_init(m);
-	if (!parser(argv[1], m))
-		return (write(2, "Error\n", 6));
-	mlx = mlx_init(m->width * 64, m->height * 64, "BITE", true);
-
-	mlx_loop(mlx);
-	return (1);
+	i = -1;
+	s = malloc(count * size);
+	if (!s)
+		return (NULL);
+	while (++i < count * size)
+		s[i] = 0;
+	return (s);
 }

@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 17:28:07 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/13 17:35:28 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/14 16:51:16 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ char	*ft_strdup_no_nl(const char *src)
 	int		i;
 	char	*dup;
 
-	i = -1;
+	if (!src)
+		return (NULL);
+	i = 0;
 	dup = malloc(sizeof(char) * (ft_strlen(src) + 1));
 	if (!dup)
 		return (NULL);

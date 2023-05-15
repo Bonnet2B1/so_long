@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 17:28:34 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/15 18:53:49 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/05/14 16:58:35 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/14 18:48:53 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	t_map	*m;
-	mlx_t	*mlx;
+	char	*str;
+	size_t	i;
+	int		j;
 
-	if (argc != 2)
-		return (write(2, "Error\n", 6));
-	m = malloc(sizeof(t_map));
-	map_init(m);
-	if (!parser(argv[1], m))
-		return (write(2, "Error\n", 6));
-	mlx = mlx_init(m->width * 64, m->height * 64, "BITE", true);
-
-	mlx_loop(mlx);
-	return (1);
+	i = -1;
+	j = -1;
+	if (!s1 || !s2)
+		return (s1);
+	str = ft_calloc((ft_strlen(s1) + ft_strlen(s2)) + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s1[++i])
+		str[i] = s1[i];
+	while (s2[++j])
+		str[i++] = s2[j];
+	str[i] = '\0';
+	return (free(s1), free(s2), str);
 }
