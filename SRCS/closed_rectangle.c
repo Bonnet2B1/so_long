@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   closed_rectangle.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 17:28:31 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/15 19:42:52 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/05/15 19:40:13 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/05/15 19:40:31 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	parser(char *file, t_map *m)
+int	closed_rectangle(t_map *m)
 {
-	if (!valid_file(file) || !create_map(file, m) || !closed_rectangle(m)
-		|| !count_obj(m) || !valid_way(temp_init(m), find_player_x(m), find_player_y(m)))
-		return (0);
+	int y;
+	y = -1;
+	m->width = ft_strlen(m->map[0]);
+	while (m->map[++y])
+	{
+		if (m->map[y][0] != '1' || m->map[y][m->width - 1] != '1')
+			return (0);
+		if (ft_strlen(m->map[y]) != m->width)
+			return (0);
+	}
 	return (1);
 }
