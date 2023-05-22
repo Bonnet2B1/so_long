@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:40:13 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/15 19:40:31 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:11:53 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	closed_rectangle(t_map *m)
 {
-	int y;
+	int	y;
+
 	y = -1;
 	m->width = ft_strlen(m->map[0]);
 	while (m->map[++y])
