@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdupno_nl.c                                   :+:      :+:    :+:   */
+/*   ft_strdup_no_nl.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 17:28:07 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/14 16:51:16 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/02 16:26:06 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strdup_no_nl(const char *src)
 	if (!src)
 		return (NULL);
 	i = 0;
-	dup = malloc(sizeof(char) * (ft_strlen(src) + 1));
+	dup = malloc(sizeof(char) * (ft_strlen_no_nl(src) + 1));
 	if (!dup)
 		return (NULL);
 	while (src[i] && src[i] != '\n')
