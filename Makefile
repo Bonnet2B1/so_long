@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 15:46:57 by gloms             #+#    #+#              #
-#    Updated: 2023/06/07 18:25:32 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/06/07 18:42:10 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,23 +15,14 @@
 
 NAME = so_long
 
-SRCS =	so_long.c \
-		map_parser_1.c \
-		map_parser_2.c \
-		get_next_line.c \
-		get_next_line_utils.c \
-		texture_setup.c \
-		animations.c \
-		collusions.c \
-		collusions2.c \
-		valid_way.c \
-		putnbr.c
+SRCS =	*/*.c \
+		*/*/*.c \
 
 OBJS = $(SRCS:.c=.o)
 
 # ------------------------------ Flags -------------------------------
 
-GCC = @gcc  -Wall -Werror -Wextra
+GCC = @gcc -Wall -Werror -Wextra
 
 # ------------------------------ Colors ------------------------------
 
@@ -52,7 +43,7 @@ MAKE_MESS		= • Make :
 
 FILES_OK		= has been successfully compiled!
 
-FILES_DELETE	= • Clean : please make am fclean to delete so_long.exe
+FILES_DELETE	= • Clean : please make am fclean to delete so_long
 
 FCLEAN_DELETE	= • Fclean : so_long.exe was been successfully deleted!
 
@@ -61,7 +52,7 @@ FCLEAN_DELETE	= • Fclean : so_long.exe was been successfully deleted!
 all: $(NAME)
 
 $(NAME):
-	@$(GCC) $(SRCS) -o $(NAME) MLX42/build/libmlx42.a -I include -lglfw -L "/Users/rbrendle/.brew/opt/glfw/lib/"
+	@$(GCC) $(SRCS) -o $(NAME) MLX42/build/libmlx42.a -I include -lglfw -L "/Users/$USER/.brew/opt/glfw/lib/"
 	@echo ${GREEN}"$(MAKE_MESS) $(NAME) $(FILES_OK)"${END}
 
 # --  ---------------------------- Rules -----------------------------------

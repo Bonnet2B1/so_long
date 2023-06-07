@@ -6,14 +6,14 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/15 19:44:12 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:39:45 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "MLX42/include/MLX42/MLX42.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 # include "get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include <stdio.h>
