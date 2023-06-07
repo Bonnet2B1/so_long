@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   freemap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 17:28:31 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/07 20:31:28 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/06/07 19:31:07 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/06/07 20:21:20 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	parser(char *file, t_map *m)
+void	freemap(char **map, int height)
 {
-	if (!valid_file(file) || !create_map(file, m) || !closed_rectangle(m)
-		|| !count_obj(m) || !valid_way(temp_init(m), copy_map(m, m->map), find_player_x(m), find_player_y(m)))
-		return (0);
-	return (1);
+	int	i;
+
+	i = -1;
+	if (!map)
+		return ;
+	while (++i < height)
+		free(map[i]);
+	free(map);
 }

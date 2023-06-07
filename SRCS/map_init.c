@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 18:23:29 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/15 18:09:29 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/07 20:23:27 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,12 @@ t_map	*temp_init(t_map *m)
 
 	i = -1;
 	temp = malloc(sizeof(t_map));
+	if (!temp)
+		return (NULL);
 	map_init(temp);
 	temp->map = malloc(sizeof(char *) * (m->height + 1));
+	if (!temp->map)
+		return (NULL);
 	while (++i <= m->height)
 		temp->map[i] = ft_strdup_no_nl(m->map[i]);
 	temp->height = m->height;

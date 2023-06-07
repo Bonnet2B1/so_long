@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 15:46:57 by gloms             #+#    #+#              #
-#    Updated: 2023/06/07 18:42:10 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/06/07 20:47:16 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,54 +15,50 @@
 
 NAME = so_long
 
-SRCS =	*/*.c \
-		*/*/*.c \
+SRCS =	SRCS/*.c \
+		SRCS/*/*.c \
 
-OBJS = $(SRCS:.c=.o)
+OBJS :=	$(SRCS:.c=.o)
+
+.c.o:
+	@ $(GCC) -c $< -o $(<:.c=.o)
 
 # ------------------------------ Flags -------------------------------
 
-GCC = @gcc -Wall -Werror -Wextra
+GCC = @gcc -Wall -Werror -Wextra -g3 -fsanitize=address
 
 # ------------------------------ Colors ------------------------------
 
 # Colors
 
-GREY 	 := "\033[1;30m"
-RED 	 :=	"\033[1;31m"
-GREEN 	 := "\033[1;32m"
-YELLOW 	 := "\033[1;33m"
-BLUE	 :=	"\033[1;36m"
-PURPLE	 :=	"\033[1;35m"
-WHITE	 :=	"\033[1;37m"
-END		 :=	"\033[0;0m"
-
-# ------------------------------ Messages ------------------------------
-
-MAKE_MESS		= • Make :
-
-FILES_OK		= has been successfully compiled!
-
-FILES_DELETE	= • Clean : please make am fclean to delete so_long
-
-FCLEAN_DELETE	= • Fclean : so_long.exe was been successfully deleted!
+CLR_RMV		:=	\033[0m
+RED			:=	\033[1;31m
+GREEN		:=	\033[1;32m
+YELLOW		:=	\033[1;33m
+BLUE		:=	\033[1;34m
+CYAN 		:=	\033[1;36m
 
 # ------------------------------ so_long --------------------------------
+
+RM			:=	rm -f
 
 all: $(NAME)
 
 $(NAME):
-	@$(GCC) $(SRCS) -o $(NAME) MLX42/build/libmlx42.a -I include -lglfw -L "/Users/$USER/.brew/opt/glfw/lib/"
-	@echo ${GREEN}"$(MAKE_MESS) $(NAME) $(FILES_OK)"${END}
+				@ echo "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME) $(CLR_RMV)..."
+				@ $(GCC) $(SRCS) -o $(NAME) MLX42/libmlx42.a -I include -lglfw -L "/opt/homebrew/Cellar/glfw/3.3.8/lib/"
+				@ echo "$(GREEN)$(NAME) created[0m ✔️"
 
 # --  ---------------------------- Rules -----------------------------------
 
 clean:
-	@rm -rf ${OBJS}
-	@echo ${RED}"$(FILES_DELETE)"${END}
+				@ $(RM) $(OBJS) $(OBJS_BONUS)
+				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)objs ✔️"
 
-fclean: clean 
-	@rm -rf $(NAME)
-	@echo ${RED}"$(FCLEAN_DELETE)"${END}
+fclean:			clean
+				@ $(RM) $(NAME) $(RM) $(NAME_BONUS)
+				@ echo "$(RED)Deleting $(CYAN)$(NAME) $(CLR_RMV)binary ✔️"
 
-re : fclean all
+re:				fclean all
+
+.PHONY:			all fclean re
