@@ -6,13 +6,13 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 17:28:07 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/02 16:26:06 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:21:58 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_strlen_no_nl(char *str)
+int	ft_strlen_no_nl(const char *str)
 {
 	int	i;
 
