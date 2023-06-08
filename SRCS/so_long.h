@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/07 21:41:16 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/08 23:45:05 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_map
 	int		collectible;
 	int		exit;
 	int		player;
+	int		zennemy;
+	int		moove;
 
 	mlx_t	*mlx;
 	mlx_image_t	*player_img;
@@ -59,5 +61,8 @@ int			valid_file(char *file);
 int			create_map(char *file, t_map *m);
 int			closed_rectangle(t_map *m);
 int			count_obj(t_map *m);
+
+void	render_map(t_map *m);
+void	render_tx(t_map *m, char *path, int y, int x);
 
 #endif
