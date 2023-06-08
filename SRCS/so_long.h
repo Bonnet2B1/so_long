@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/07 20:30:19 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:41:16 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,14 @@ typedef struct s_map
 	int		collectible;
 	int		exit;
 	int		player;
+
+	mlx_t	*mlx;
+	mlx_image_t	*player_img;
+	mlx_image_t	*portal_img;
 }			t_map;
 
 //	temp.c
-void		print_map(t_map *map);
+void print_map(char **map, int height);
 int			parser(char *file, t_map *m);
 //	map_init.c
 void		map_init(t_map *m);

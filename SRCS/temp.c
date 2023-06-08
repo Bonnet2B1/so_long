@@ -6,17 +6,18 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 15:15:12 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/05/15 18:11:48 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/07 21:01:46 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void print_map(t_map *map)
+void print_map(char **map, int height)
 {
 	int i;
 
 	i = -1;
-	while (++i <= map->height)
-		printf("%s\n", map->map[i]);
+	printf("map:\n");
+	while (++i <= height)
+		printf("%s\n", map[i]);
 }
