@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   render_and_input.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 17:28:31 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/09 01:09:43 by edelarbr         ###   ########.fr       */
+/*   Created: 2023/06/09 01:12:08 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/06/09 01:15:24 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	parser(char *file, t_map *m)
+void	render_and_inputs(t_map *m)
 {
-	if (!valid_file(file) || !create_map(file, m) || !closed_rectangle(m)
-		|| !count_obj(m) || !valid_way(temp_init(m), copy_map(m, m->map), find_player_x(m), find_player_y(m)))
-		return (0);
-	return (1);
+	m->mlx = mlx_init(m->width * 64, (m->height + 1) * 64, "so_long", true);
+	render_map(m);
+	// mlx_key_hook(s_map->mlx, &key, m);
+	// mlx_loop_hook(s_map->mlx, &portal_anim, s_map);
+	mlx_loop(m->mlx);
 }

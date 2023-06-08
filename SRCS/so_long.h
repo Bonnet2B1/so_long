@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/08 23:45:05 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/09 01:13:50 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ int			create_map(char *file, t_map *m);
 int			closed_rectangle(t_map *m);
 int			count_obj(t_map *m);
 
-void	render_map(t_map *m);
-void	render_tx(t_map *m, char *path, int y, int x);
+void		render_and_inputs(t_map *m);
+void		render_map(t_map *m);
+void		render_tx(t_map *m, char *path, int y, int x);
+
 
 #endif
