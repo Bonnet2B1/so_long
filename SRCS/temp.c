@@ -6,15 +6,15 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 15:15:12 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/07 21:01:46 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/10 15:36:27 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void print_map(char **map, int height)
+void	print_map(char **map, int height)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	printf("map:\n");

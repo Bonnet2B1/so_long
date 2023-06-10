@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 20:57:22 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/02 17:40:41 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/10 15:43:14 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 void	freeall(t_map *map)
 {
-	if (map)
-		return;
 	int	i;
 
 	i = -1;

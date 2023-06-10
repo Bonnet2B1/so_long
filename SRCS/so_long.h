@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/09 01:13:50 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/10 15:45:01 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,49 +22,50 @@
 
 typedef struct s_map
 {
-	char	**map;
-	int		height;
-	int		width;
-	int		collectible;
-	int		exit;
-	int		player;
-	int		zennemy;
-	int		moove;
+	char		**map;
+	int			height;
+	int			width;
+	int			collectible;
+	int			exit;
+	int			player;
+	int			zennemy;
+	int			moove;
+	int			player_x;
+	int			player_y;
 
-	mlx_t	*mlx;
+	mlx_t		*mlx;
 	mlx_image_t	*player_img;
 	mlx_image_t	*portal_img;
-}			t_map;
+}				t_map;
 
 //	temp.c
-void print_map(char **map, int height);
-int			parser(char *file, t_map *m);
+void			print_map(char **map, int height);
+int				parser(char *file, t_map *m);
 //	map_init.c
-void		map_init(t_map *m);
-t_map		*temp_init(t_map *m);
+void			map_init(t_map *m);
+t_map			*temp_init(t_map *m);
 
 //	valid_way.c
-int			find_player_x(t_map *m);
-int			find_player_y(t_map *m);
-char		**copy_map(t_map *temp, char **old_map);
-int			valid_way(t_map *temp, char **map, int x, int y);
+int				find_player_x(t_map *m);
+int				find_player_y(t_map *m);
+char			**copy_map(t_map *temp, char **old_map);
+int				valid_way(t_map *temp, char **map, int x, int y);
 
-void		freemap(char **map, int height);
+void			freemap(char **map, int height);
 
-int			ft_strlen(const char *s);
-void		freeall(t_map *map);
-char		*ft_strdup_no_nl(const char *src);
-char		*ft_strjoin(char *s1, char *s2);
-void		*ft_calloc(size_t size, size_t count);
-char		**ft_split(const char *s, char c);
-int			valid_file(char *file);
-int			create_map(char *file, t_map *m);
-int			closed_rectangle(t_map *m);
-int			count_obj(t_map *m);
+int				ft_strlen(const char *s);
+void			freeall(t_map *map);
+char			*ft_strdup_no_nl(const char *src);
+char			*ft_strjoin(char *s1, char *s2);
+void			*ft_calloc(size_t size, size_t count);
+char			**ft_split(const char *s, char c);
+int				valid_file(char *file);
+int				create_map(char *file, t_map *m);
+int				closed_rectangle(t_map *m);
+int				count_obj(t_map *m);
 
-void		render_and_inputs(t_map *m);
-void		render_map(t_map *m);
-void		render_tx(t_map *m, char *path, int y, int x);
-
+void			render_and_inputs(t_map *m);
+void			render_map(t_map *m);
+void			render_tx(t_map *m, char *path, int y, int x);
 
 #endif
