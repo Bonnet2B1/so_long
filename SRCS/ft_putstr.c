@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_and_input.c                                 :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 01:12:08 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/10 15:46:51 by edelarbr         ###   ########.fr       */
+/*   Created: 2022/07/25 14:37:51 by edelarbr          #+#    #+#             */
+/*   Updated: 2023/06/10 16:47:11 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	render_and_inputs(t_map *m)
+void	ft_putstr(char *str)
 {
-	m->mlx = mlx_init(m->width * 64, (m->height + 1) * 64, "so_long", true);
-	render_map(m);
-	mlx_key_hook(m->mlx, &key, m);
-	mlx_loop(m->mlx);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write (1, &str[i], 1);
+		i++;
+	}
 }

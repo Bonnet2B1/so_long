@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 19:31:07 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/07 20:21:20 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/10 16:53:40 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ void	freemap(char **map, int height)
 	int	i;
 
 	i = -1;
-	if (!map)
-		return ;
-	while (++i < height)
-		free(map[i]);
-	free(map);
+	if (map)
+	{
+		while (++i < height)
+			free(map[i]);
+		free(map);
+		map = NULL;
+	}
 }

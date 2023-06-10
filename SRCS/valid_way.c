@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:41:18 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/10 15:40:33 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:04:37 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	find_player_x(t_map *m)
 		while (m->map[y][++x])
 		{
 			if (m->map[y][x] == 'P')
-				return (x);
+				return (m->player_x = x);
 		}
 		x = -1;
 	}
@@ -74,7 +74,7 @@ int	valid_way(t_map *temp, char **map, int x, int y)
 		map[y][x] = '0';
 	}
 	if (map[y][x] == 'E' && temp->collectible == 0)
-		return (freeall(temp), freemap(map, temp->height), 1);
+		return (freemap(map, temp->height), 1);
 	if (map[y][x] == '0' || (map[y][x] == '2' && temp->collectible == 0)
 		|| map[y][x] == 'E')
 	{
@@ -86,8 +86,8 @@ int	valid_way(t_map *temp, char **map, int x, int y)
 				copy_map(temp, map), (x + 1), y) || valid_way(temp,
 				copy_map(temp, map), x, (y - 1)) || valid_way(temp,
 				copy_map(temp, map), x, (y + 1)))
-			return (freeall(temp), freemap(map, temp->height), 1);
-		return (freeall(temp), freemap(map, temp->height), 0);
+			return (freemap(map, temp->height), 1);
+		return (freemap(map, temp->height), 0);
 	}
-	return (0);
+	return (freemap(map, temp->height), 0);
 }

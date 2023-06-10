@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/10 15:45:01 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/10 16:47:30 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_map
 	int			exit;
 	int			player;
 	int			zennemy;
-	int			moove;
+	int			movements;
 	int			player_x;
 	int			player_y;
 
@@ -53,6 +53,7 @@ int				valid_way(t_map *temp, char **map, int x, int y);
 
 void			freemap(char **map, int height);
 
+void			ft_putstr(char *str);
 int				ft_strlen(const char *s);
 void			freeall(t_map *map);
 char			*ft_strdup_no_nl(const char *src);
@@ -63,9 +64,11 @@ int				valid_file(char *file);
 int				create_map(char *file, t_map *m);
 int				closed_rectangle(t_map *m);
 int				count_obj(t_map *m);
+void			ft_putnbr(int nb);
 
 void			render_and_inputs(t_map *m);
 void			render_map(t_map *m);
 void			render_tx(t_map *m, char *path, int y, int x);
 
+void			key(mlx_key_data_t keydata, void *param);
 #endif
