@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:16:51 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/10 17:15:08 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/10 17:20:08 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int move(t_map *m, int x, int y)
 	if (m->map[m->player_y + y][m->player_x + x] == '1')
 		return (0);
 	if (m->map[m->player_y + y][m->player_x + x] == 'Z')
-		return (end(m, -1), 0);
+		return (ft_putnbr(++m->movements), write(1, "\n", 1), end(m, -1), 0);
 	if (m->map[m->player_y + y][m->player_x + x] == 'C')
 	{
 		m->map[m->player_y + y][m->player_x + x] = 'P';
@@ -57,7 +57,7 @@ int move(t_map *m, int x, int y)
 	else if (m->map[m->player_y + y][m->player_x + x] == 'E' && m->collectible)
 		m->map[m->player_y + y][m->player_x + x] = 'K';
 	else if (m->map[m->player_y + y][m->player_x + x] == 'E' && !m->collectible)
-		return (end(m, 1), 1);
+		return (ft_putnbr(++m->movements), write(1, "\n", 1), end(m, 1), 1);
 	if (m->map[m->player_y][m->player_x] == 'K')
 		m->map[m->player_y][m->player_x] = 'E';	
 	else
