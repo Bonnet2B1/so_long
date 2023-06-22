@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:16:51 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/10 17:20:08 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/22 23:19:38 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,11 @@ void	end(t_map *m, int i)
 	return (freeall(m), exit(0));
 }
 
-int move(t_map *m, int x, int y)
+int	move(t_map *m, int x, int y)
 {
+	char **temp;
+
+	temp = copy_map(m, m->map);
 	if (m->map[m->player_y + y][m->player_x + x] == '1')
 		return (0);
 	if (m->map[m->player_y + y][m->player_x + x] == 'Z')
@@ -55,17 +58,17 @@ int move(t_map *m, int x, int y)
 	else if (m->map[m->player_y + y][m->player_x + x] == '0')
 		m->map[m->player_y + y][m->player_x + x] = 'P';
 	else if (m->map[m->player_y + y][m->player_x + x] == 'E' && m->collectible)
-		m->map[m->player_y + y][m->player_x + x] = 'K';
+		m->map[m->player_y + y][m->player_x + x] = 'e';
 	else if (m->map[m->player_y + y][m->player_x + x] == 'E' && !m->collectible)
 		return (ft_putnbr(++m->movements), write(1, "\n", 1), end(m, 1), 1);
-	if (m->map[m->player_y][m->player_x] == 'K')
-		m->map[m->player_y][m->player_x] = 'E';	
+	if (m->map[m->player_y][m->player_x] == 'e')
+		m->map[m->player_y][m->player_x] = 'E';
 	else
 		m->map[m->player_y][m->player_x] = '0';
 	m->player_x += x;
 	m->player_y += y;
-	render_map(m);
-	return (ft_putnbr(++m->movements), write(1, "\n", 1), 1);
+	render_map(m, temp);
+	return (freemap(temp, m->height), ft_putnbr(++m->movements), write(1, "\n", 1), 1);
 }
 
 void	key(mlx_key_data_t keydata, void *param)

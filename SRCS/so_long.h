@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/10 16:47:30 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/22 21:52:37 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,14 @@ typedef struct s_map
 	int			player_x;
 	int			player_y;
 
+	int 		tx_loaded;
 	mlx_t		*mlx;
 	mlx_image_t	*player_img;
-	mlx_image_t	*portal_img;
+	mlx_image_t	*exit_img;
+	mlx_image_t	*collectible_img;
+	mlx_image_t	*wall_img;
+	mlx_image_t	*floor_img;
+	mlx_image_t	*zennemy_img;
 }				t_map;
 
 //	temp.c
@@ -67,7 +72,7 @@ int				count_obj(t_map *m);
 void			ft_putnbr(int nb);
 
 void			render_and_inputs(t_map *m);
-void			render_map(t_map *m);
+void			render_map(t_map *m, char **old_map);
 void			render_tx(t_map *m, char *path, int y, int x);
 
 void			key(mlx_key_data_t keydata, void *param);
