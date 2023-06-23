@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:41:18 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/23 18:37:42 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/23 20:26:22 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,10 @@ char	**copy_map(t_map *m, char **map)
 
 int	valid_way(t_map *temp, int x, int y)
 {
-	printf("x = %d, y = %d\n", x, y);
-	printf("collectible = %d\n", temp->collectible);
-	print_map(temp->map, temp->height);
+	if (!temp->map && temp->collectible)
+		return (0);
+	else if (!temp->map && !temp->collectible)
+		return (1);
 	if (temp->map[y][x] == '1' || temp->map[y][x] == 'Z')
 		return (0);
 	if (temp->map[y][x] == 'C' || temp->map[y][x] == 'E')
@@ -108,8 +109,8 @@ int	valid_way(t_map *temp, int x, int y)
 	valid_way(temp, x, (y + 1));
 	valid_way(temp, x, (y - 1));
 	if (!temp->collectible)
-		return (1);
-	return (0);
+		return (freemap(temp->map, temp->height), 1);
+	return (freemap(temp->map, temp->height), 0);
 }
 
 

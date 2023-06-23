@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:16:51 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/23 19:25:32 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/23 19:59:51 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,8 @@ void	end(t_map *m, int i)
 	return (freeall(m), exit(0));
 }
 
-int	move(t_map *m, int x, int y)
+int	move(t_map *m, char **old_map, int x, int y)
 {
-	char **old_map;
-
-	old_map = copy_map(m, m->map);
 	if (m->map[m->player_y + y][m->player_x + x] == '1')
 		return (0);
 	if (m->map[m->player_y + y][m->player_x + x] == 'Z')
@@ -79,11 +76,11 @@ void	key(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_ESCAPE)
 		end(m, 0);
 	if (mlx_is_key_down(m->mlx, MLX_KEY_A))
-		move(m, -1, 0);
+		move(m, copy_map(m, m->map), -1, 0);
 	else if (mlx_is_key_down(m->mlx, MLX_KEY_D))
-		move(m, 1, 0);
+		move(m, copy_map(m, m->map), 1, 0);
 	else if (mlx_is_key_down(m->mlx, MLX_KEY_W))
-		move(m, 0, -1);
+		move(m, copy_map(m, m->map), 0, -1);
 	else if (mlx_is_key_down(m->mlx, MLX_KEY_S))
-		move(m, 0, 1);
+		move(m, copy_map(m, m->map), 0, 1);
 }
