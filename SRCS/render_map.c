@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:16:46 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/22 23:17:54 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/23 18:44:19 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,7 @@ void	render_map(t_map *m, char **old_map)
 	int	x;
 
 	if (!m->tx_loaded)
-	{
 		load_tx(m);
-		printf("Textures loaded\n");
-	}
 	y = -1;
 	while (++y <= m->height)
 	{

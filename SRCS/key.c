@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:16:51 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/22 23:19:38 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/23 19:25:32 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	end(t_map *m, int i)
 
 int	move(t_map *m, int x, int y)
 {
-	char **temp;
+	char **old_map;
 
-	temp = copy_map(m, m->map);
+	old_map = copy_map(m, m->map);
 	if (m->map[m->player_y + y][m->player_x + x] == '1')
 		return (0);
 	if (m->map[m->player_y + y][m->player_x + x] == 'Z')
@@ -67,8 +67,8 @@ int	move(t_map *m, int x, int y)
 		m->map[m->player_y][m->player_x] = '0';
 	m->player_x += x;
 	m->player_y += y;
-	render_map(m, temp);
-	return (freemap(temp, m->height), ft_putnbr(++m->movements), write(1, "\n", 1), 1);
+	render_map(m, old_map);
+	return (freemap(old_map, m->height), ft_putnbr(++m->movements), write(1, "\n", 1), 1);
 }
 
 void	key(mlx_key_data_t keydata, void *param)

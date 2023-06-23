@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 18:23:29 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/22 21:20:00 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/23 18:17:24 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_map	*temp_init(t_map *m)
 		temp->map[i] = ft_strdup_no_nl(m->map[i]);
 	temp->height = m->height;
 	temp->width = m->width;
-	temp->collectible = m->collectible;
+	temp->collectible = m->collectible + 1;
 	temp->exit = m->exit;
 	temp->player = m->player;
 	return (temp);

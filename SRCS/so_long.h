@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/22 21:52:37 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/23 18:22:47 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_map			*temp_init(t_map *m);
 int				find_player_x(t_map *m);
 int				find_player_y(t_map *m);
 char			**copy_map(t_map *temp, char **old_map);
-int				valid_way(t_map *temp, char **map, int x, int y);
+int				valid_way(t_map *temp, int x, int y);
 
 void			freemap(char **map, int height);
 
