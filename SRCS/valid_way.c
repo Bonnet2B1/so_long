@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:41:18 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/23 20:26:22 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:19:49 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,8 @@ int	valid_way(t_map *temp, int x, int y)
 	valid_way(temp, x, (y + 1));
 	valid_way(temp, x, (y - 1));
 	if (!temp->collectible)
-		return (freemap(temp->map, temp->height), 1);
-	return (freemap(temp->map, temp->height), 0);
+		return (1);
+	return (0);
 }
 
 

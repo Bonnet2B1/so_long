@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/10 15:31:57 by edelarbr          #+#    #+#              #
-#    Updated: 2023/06/10 16:50:04 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/06/27 15:18:27 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJS :=	$(SRCS:.c=.o)
 
 # ------------------------------ Flags -------------------------------
 
-GCC = @gcc -Wall -Werror -Wextra -g3 -fsanitize=address
+GCC = @gcc -Wall -Werror -Wextra #-g3 -fsanitize=address
 
 # ------------------------------ Colors ------------------------------
 
