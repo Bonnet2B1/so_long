@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 23:16:46 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/23 20:10:57 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/27 23:55:04 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	render_map_part_two(t_map *m, int x, int y)
 		mlx_image_to_window(m->mlx, m->wall_img, x * 64, y * 64);
 	if (m->map[y][x] == '0' || (m->map[y][x] == 'E' && m->collectible))
 		mlx_image_to_window(m->mlx, m->floor_img, x * 64, y * 64);
-	if (m->map[y][x] == 'P')
+	if (m->map[y][x] == 'P' || m->map[y][x] == 'e')
 		mlx_image_to_window(m->mlx, m->player_img, x * 64, y * 64);
 	if (m->map[y][x] == 'C')
 		mlx_image_to_window(m->mlx, m->collectible_img, x * 64, y * 64);

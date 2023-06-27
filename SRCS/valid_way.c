@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:41:18 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/27 22:05:41 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/27 23:40:28 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,35 +64,6 @@ char	**copy_map(t_map *m, char **map)
 	return (new_map);
 }
 
-// int	valid_way(t_map *temp, char **map, int x, int y)
-// {
-// 	print_map(map, temp->height);
-// 	if (map[y][x] == 'P')
-// 		map[y][x] = '0';
-// 	if (map[y][x] == 'C')
-// 	{
-// 		temp->collectible--;
-// 		map[y][x] = '0';
-// 	}
-// 	if (map[y][x] == 'E' && !temp->collectible)
-// 		return (freemap(map, temp->height), 1);
-// 	if (map[y][x] == '0' || (map[y][x] == '2' && !temp->collectible)
-// 		|| map[y][x] == 'E')
-// 	{
-// 		if (temp->collectible && map[y][x] != 'E')
-// 			map[y][x] = '2';
-// 		else if (!temp->collectible && map[y][x] != 'E')
-// 			map[y][x] = '1';
-// 		if (valid_way(temp, copy_map(temp, map), (x - 1), y) || valid_way(temp,
-// 				copy_map(temp, map), (x + 1), y) || valid_way(temp,
-// 				copy_map(temp, map), x, (y - 1)) || valid_way(temp,
-// 				copy_map(temp, map), x, (y + 1)))
-// 			return (freemap(map, temp->height), 1);
-// 		return (freemap(map, temp->height), 0);
-// 	}
-// 	return (freemap(map, temp->height), 0);
-// }
-
 int	valid_way(t_map *temp, int x, int y)
 {
 	if (!temp->map && temp->collectible)
@@ -112,27 +83,3 @@ int	valid_way(t_map *temp, int x, int y)
 		return (1);
 	return (0);
 }
-
-// int	map_way(char **map, int px, int py)
-// {
-// 	static int	collectible;
-
-// 	if (map[py][px] == '1'|| map[py][px] == 'F')
-// 		return (0);
-// 	if (map[py][px] == 'C' || map[py][px] == 'E')
-// 		collectible++;
-// 	map[py][px] = '1';
-// 	map_way(map, px - 1, py);
-// 	map_way(map, px + 1, py);
-// 	map_way(map, px, py - 1);
-// 	map_way(map, px, py + 1);
-// 	return (collectible);
-// }
-
-// int	map_way_ok(char **map, int px, int py)
-// {
-// 	int	collect;
-
-// 	collect = get_collect(map);
-// 	return (map_way(map, px, py) == collect + 1);
-// }

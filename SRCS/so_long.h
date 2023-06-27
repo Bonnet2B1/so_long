@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/23 18:22:47 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/27 22:39:12 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_map
 	int			player_x;
 	int			player_y;
 
-	int 		tx_loaded;
+	int			tx_loaded;
 	mlx_t		*mlx;
 	mlx_image_t	*player_img;
 	mlx_image_t	*exit_img;
