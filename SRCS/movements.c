@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:16:51 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/27 23:51:47 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/27 23:57:46 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ void	end(t_map *m, int i)
 
 int	move(t_map *m, char **old_map, int x, int y)
 {
-	print_map(m->map, m->height);
 	if (m->map[m->player_y + y][m->player_x + x] == '1')
 		return (0);
 	if (m->map[m->player_y + y][m->player_x + x] == 'Z')
