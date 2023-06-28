@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:28:34 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/27 22:32:50 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/28 21:59:24 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int	main(int argc, char **argv)
 	if (!parser(argv[1], m))
 		return (write(2, "Error\n", 6));
 	render_and_inputs(m);
+	mlx_terminate(m->mlx);
 	return (1);
 }

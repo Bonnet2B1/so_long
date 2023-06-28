@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/10 15:31:57 by edelarbr          #+#    #+#              #
-#    Updated: 2023/06/28 17:31:04 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/06/28 22:06:25 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@
 
 NAME = so_long
 
-SRCS =	SRCS/*.c \
-		SRCS/*/*.c \
+SRCS =	srcs/*.c \
+		srcs/*/*.c \
 
 OBJS :=	$(SRCS:.c=.o)
 
@@ -25,7 +25,7 @@ OBJS :=	$(SRCS:.c=.o)
 
 # ------------------------------ Flags -------------------------------
 
-GCC = @gcc -Wall -Werror -Wextra -g3 -fsanitize=address
+GCC = @gcc -Wall -Werror -Wextra #-g3 -fsanitize=address
 
 # ------------------------------ Colors ------------------------------
 
