@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements.c                                        :+:      :+:    :+:   */
+/*   movement.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 19:16:51 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/28 01:02:33 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/28 19:04:40 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	move(t_map *m, char **old_map, int x, int y)
 	if (m->map[m->player_y + y][m->player_x + x] == '1')
 		return (0);
 	if (m->map[m->player_y + y][m->player_x + x] == 'Z')
-		return (ft_putnbr(++m->movements), write(1, "\n", 1), end(m, -1), 0);
+		return (++m->movement, render_movement(m), end(m, -1), 0);
 	if (m->map[m->player_y + y][m->player_x + x] == 'C')
 	{
 		m->map[m->player_y + y][m->player_x + x] = 'P';
@@ -57,7 +57,7 @@ int	move(t_map *m, char **old_map, int x, int y)
 	else if (m->map[m->player_y + y][m->player_x + x] == 'E' && m->collectible)
 		m->map[m->player_y + y][m->player_x + x] = 'e';
 	else if (m->map[m->player_y + y][m->player_x + x] == 'E' && !m->collectible)
-		return (ft_putnbr(++m->movements), write(1, "\n", 1), end(m, 1), 1);
+		return (++m->movement, render_movement(m), end(m, 1), 1);
 	if (m->map[m->player_y][m->player_x] == 'e')
 		m->map[m->player_y][m->player_x] = 'E';
 	else
@@ -65,7 +65,7 @@ int	move(t_map *m, char **old_map, int x, int y)
 	m->player_x += x;
 	m->player_y += y;
 	render_map(m, old_map);
-	return (freemap(old_map, m->height), ft_putnbr(++m->movements), write(1, "\n", 1), 1);
+	return (freemap(old_map, m->height), ++m->movement, render_movement(m), 1);
 }
 
 void	key(mlx_key_data_t keydata, void *param)

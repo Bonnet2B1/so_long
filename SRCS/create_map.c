@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:37:18 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/10 15:42:37 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/28 21:30:21 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	create_map(char *file, t_map *m)
 	int		fd;
 
 	fd = open(file, O_RDONLY);
-	if (read(fd, "", 0) == -1)
-		return (0);
 	map_in_line = get_next_line(fd);
 	temp = get_next_line(fd);
 	while (map_in_line && temp)
@@ -30,5 +28,5 @@ int	create_map(char *file, t_map *m)
 		temp = get_next_line(fd);
 	}
 	m->map = ft_split(map_in_line, '\n');
-	return (free(map_in_line), 1);
+	return (close(fd), free(map_in_line), 1);
 }

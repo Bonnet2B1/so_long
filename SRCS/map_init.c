@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 18:23:29 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/23 20:08:36 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/28 19:38:03 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	map_init(t_map *map)
 	map->collectible = 0;
 	map->exit = 0;
 	map->player = 0;
-	map->movements = 0;
+	map->movement = 0;
 	map->tx_loaded = 0;
-
-	map->exit_img = NULL;
+	map->portal_frame = 1;
+	map->frame = 4;
 }
 
 t_map	*temp_init(t_map *m)

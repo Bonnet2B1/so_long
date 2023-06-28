@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:28:31 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/27 23:43:03 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/28 21:09:46 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	parser(char *file, t_map *m)
 {
-	t_map *temp;
+	t_map	*temp;
 
 	if (!valid_file(file) || !create_map(file, m) || !closed_rectangle(m)
 		|| !count_obj(m))
