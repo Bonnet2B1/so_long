@@ -6,27 +6,43 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:37:18 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/28 21:30:21 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/30 19:03:18 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	verify_line(char *line)
+{
+	int	i;
+
+	i = -1;
+	while (line[++i])
+	{
+		if (line[i] != '1' && line[i] != '0' && line[i] != 'C' && line[i] != 'P'
+			&& line[i] != 'E' && line[i] != 'Z' && line[i] != '\n')
+			return (write(1, "The map contains invalid characters\n", 36), 0);
+	}
+	return (1);
+}
+
 int	create_map(char *file, t_map *m)
 {
-	char	*map_in_line;
+	char	*map_in_one_line;
 	char	*temp;
 	int		fd;
 
 	fd = open(file, O_RDONLY);
-	map_in_line = get_next_line(fd);
+	map_in_one_line = get_next_line(fd);
 	temp = get_next_line(fd);
-	while (map_in_line && temp)
+	while (map_in_one_line && temp)
 	{
+		if (!verify_line(map_in_one_line))
+			return (close(fd), free(map_in_one_line), 0);
 		m->height++;
-		map_in_line = ft_strjoin(map_in_line, temp);
+		map_in_one_line = ft_strjoin(map_in_one_line, temp);
 		temp = get_next_line(fd);
 	}
-	m->map = ft_split(map_in_line, '\n');
-	return (close(fd), free(map_in_line), 1);
+	m->map = ft_split(map_in_one_line, '\n');
+	return (close(fd), free(map_in_one_line), 1);
 }
