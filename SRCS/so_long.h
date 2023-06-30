@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 17:35:47 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/28 20:53:26 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/28 22:20:36 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,8 @@ typedef struct s_map
 	mlx_image_t		*movement_img;
 }					t_map;
 
-//	temp.c
-void				print_map(char **map, int height);
 int					parser(char *file, t_map *m);
+
 //	map_init.c
 void				map_init(t_map *m);
 t_map				*temp_init(t_map *m);

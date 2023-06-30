@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 20:57:22 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/28 21:21:22 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:18:54 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	freeall(t_map *map)
 	int	i;
 
 	i = -1;
-	printf("freeall\n");
 	if (!map)
 		return ;
 	if (map->height)
