@@ -6,7 +6,7 @@
 #    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/10 15:31:57 by edelarbr          #+#    #+#              #
-#    Updated: 2023/06/30 17:47:43 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/07/05 19:53:43 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,31 @@
 
 NAME = so_long
 
-SRCS =	srcs/*.c \
-		srcs/*/*.c \
+SRCS =	srcs/closed_rectangle.c \
+		srcs/count_obj.c \
+		srcs/create_map.c \
+		srcs/display_movements.c \
+		srcs/freeall.c \
+		srcs/freemap.c \
+		srcs/ft_calloc.c \
+		srcs/ft_itoa.c \
+		srcs/ft_putnbr.c \
+		srcs/ft_putstr.c \
+		srcs/ft_split.c \
+		srcs/ft_strdup_no_nl.c \
+		srcs/ft_strjoin.c \
+		srcs/ft_strlen.c \
+		srcs/map_init.c \
+		srcs/movements.c \
+		srcs/parser.c \
+		srcs/portal_animation.c \
+		srcs/render_and_input.c \
+		srcs/render_map.c \
+		srcs/so_long.c \
+		srcs/valid_file.c \
+		srcs/valid_way.c \
+		srcs/get_next_line/get_next_line.c \
+		srcs/get_next_line/get_next_line_utils.c \
 
 OBJS :=	$(SRCS:.c=.o)
 

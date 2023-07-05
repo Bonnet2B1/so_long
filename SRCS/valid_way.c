@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:41:18 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/07/04 18:27:17 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/07/05 20:01:24 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,6 @@ char	**copy_map(t_map *m, char **map)
 
 int	valid_way(t_map *temp, int x, int y)
 {
-	// if (!temp->map && temp->collectible)
-	// 	return (0);
-	// else if (!temp->map && !temp->collectible)
-	// 	return (1);
 	if (temp->map[y][x] == '1' || temp->map[y][x] == 'Z')
 		return (0);
 	if (temp->map[y][x] == 'C' || temp->map[y][x] == 'E')

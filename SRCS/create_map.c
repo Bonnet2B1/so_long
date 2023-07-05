@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:37:18 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/06/30 19:03:18 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/07/05 19:59:08 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	verify_line(char *line)
 	{
 		if (line[i] != '1' && line[i] != '0' && line[i] != 'C' && line[i] != 'P'
 			&& line[i] != 'E' && line[i] != 'Z' && line[i] != '\n')
-			return (write(1, "The map contains invalid characters\n", 36), 0);
+			return (0);
 	}
 	return (1);
 }
