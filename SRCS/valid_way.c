@@ -79,3 +79,4 @@ int	valid_way(t_map *temp, int x, int y)
 		return (1);
 	return (0);
 }
+
