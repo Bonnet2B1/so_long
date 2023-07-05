@@ -6,7 +6,7 @@
 /*   By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/15 19:41:18 by edelarbr          #+#    #+#             */
-/*   Updated: 2023/07/05 20:01:24 by edelarbr         ###   ########.fr       */
+/*   Updated: 2023/07/05 21:56:12 by edelarbr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,3 @@ int	valid_way(t_map *temp, int x, int y)
 		return (1);
 	return (0);
 }
-
