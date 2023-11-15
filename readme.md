@@ -47,9 +47,10 @@ The map.ber file must have the following rules:
 - The map must be surrounded by walls.
 - The map must be rectangular.
 - The map must be doable.
-- The map must have at least one exit.
+- The map must have one exit.
+- The map must have one player.
 - The map must have at least one collectible.
-- The map must have at least one player.
+- The map can have ennemie(s).
 
 Representation of the pixels in the map.ber file :
 
@@ -58,6 +59,6 @@ Representation of the pixels in the map.ber file :
 - player = P
 - collectible = C
 - exit = E
-- ennemy = Z (bonus)
+- ennemy = Z
 
 Then, you can save the map.ber file and play the game with the new map by the instruction in "[How to play so_long](#how-to-play-so_long)" section.
