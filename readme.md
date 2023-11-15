@@ -8,6 +8,7 @@ To play this game, copy the following commands in your terminal.
 	git clone https://github.com/Bonnet2B1/so_long.git
 	cd so_long
 	git clone https://github.com/codam-coding-college/MLX42.git
+	cd MLX42
 	cmake -B build # build here refers to the outputfolder.
 	cmake --build build -j4 # or do make -C build -j4
 	cd ..
