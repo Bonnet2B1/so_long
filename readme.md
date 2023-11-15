@@ -20,7 +20,7 @@ To play this game, copy the following commands in your terminal.
 To play this game, copy the following commands in your terminal.
 
 	cd ~/so_long    # go to the game folder
-	make re    # compile the game
+	make    # compile the game
 	./so_long map.ber    # play the game with the map (here map.ber)
 
 
@@ -54,3 +54,5 @@ Representation of the pixels in the map.ber file :
 - collectible = C
 - exit = E
 - ennemy = Z (bonus)
+
+Then, you can save the map.ber file and play the game with the new map by [following the instructions](#how-to-play-so_long).
