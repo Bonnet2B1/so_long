@@ -23,6 +23,8 @@ To play this game, copy the following commands in your terminal.
 	make    # compile the game
 	./so_long map.ber    # play the game with the map (here map.ber)
 
+You can move the player (the blue square) with W,A,S,D keys.
+
 
 ## How to uninstall so_long
 
