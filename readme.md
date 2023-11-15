@@ -37,11 +37,14 @@ To edit the map, you have to edit the map.ber file.
 
 Copy the following commands in your terminal.
 
-	open -e ~/so_long/map/map.ber    # open the map.ber file with the text editor
+	open -e ~/so_long/map.ber    # open the map.ber file with the text editor
+
 
 The map.ber file must have the following rules:
 
 - The map must be surrounded by walls.
+- The map must be rectangular.
+- The map must be doable.
 - The map must have at least one exit.
 - The map must have at least one collectible.
 - The map must have at least one player.
@@ -55,4 +58,4 @@ Representation of the pixels in the map.ber file :
 - exit = E
 - ennemy = Z (bonus)
 
-Then, you can save the map.ber file and play the game with the new map by [following the instructions](#how-to-play-so_long).
+Then, you can save the map.ber file and play the game with the new map by the instruction in "[How to play so_long](#how-to-play-so_long)" section.
