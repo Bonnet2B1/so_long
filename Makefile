@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: edelarbr <edelarbr@student.42.fr>          +#+  +:+       +#+         #
+#    By: edelarbr <edelarbr@student.42mulhouse.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/10 15:31:57 by edelarbr          #+#    #+#              #
-#    Updated: 2023/07/05 19:53:43 by edelarbr         ###   ########.fr        #
+#    Updated: 2023/11/15 17:33:17 by edelarbr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,8 +68,8 @@ all: $(NAME)
 
 $(NAME):
 				@ echo "$(GREEN)Compilation $(CLR_RMV)of $(YELLOW)$(NAME) $(CLR_RMV)..."
-#				@ $(GCC) $(SRCS) -o $(NAME) MLX42/libmlx42.a -I include -lglfw -L "/opt/homebrew/Cellar/glfw/3.3.8/lib/"
-				@ $(GCC) $(SRCS) -o $(NAME) MLX42/build/libmlx42.a -I include -lglfw -L "/Users/edelarbr/.brew/Cellar/glfw/3.3.8/lib/"
+				@ $(GCC) $(SRCS) -o $(NAME) MLX42/build/libmlx42.a -I include -lglfw -L "/opt/homebrew/Cellar/glfw/3.3.8/lib/"
+#				@ $(GCC) $(SRCS) -o $(NAME) MLX42/build/libmlx42.a -I include -lglfw -L "/Users/edelarbr/.brew/Cellar/glfw/3.3.8/lib/"
 				@ echo "$(GREEN)$(NAME) created[0m ✔️"
 
 # --  ---------------------------- Rules -----------------------------------
