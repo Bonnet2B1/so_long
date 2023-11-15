@@ -1,6 +1,6 @@
 # My First Game : so_long
 
-Graphics are bad, ok. But it was not the point of the project.
+The graphics are bad, ok. But it was not the point of the project.
 
 ## How to install so_long
 
@@ -11,7 +11,7 @@ To play this game, copy the following commands in your terminal.
 	cd so_long    # go to the game folder
 	git clone https://github.com/codam-coding-college/MLX42.git    # install graphics library
 	cd MLX42    # go to the graphics library folder
-	cmake -B build    # build here refers to the outputfolder.
+	cmake -B build    # build here refers to the output folder.
 	cmake --build build -j4    # or do make -C build -j4
 	cd ~    # go to your home directory
 
