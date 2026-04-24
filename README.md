@@ -1,7 +1,7 @@
 
 # 🎮 so_long: My First Game
 
-[🛠️ Technologies Used](#️-technologies-used) • [📝 About the Project](#-about-the-project) • [🚀 How to Install](#-how-to-install) • [🗺️ How to Edit the Map](#️-how-to-edit-the-map) • [💬 Final Thoughts](#-final-thoughts)
+[📝 About the Project](#-about-the-project) • [🛠️ Technologies Used](#️-technologies-used) • [🚀 How to Install](#-how-to-install) • [🗺️ How to Edit the Map](#️-how-to-edit-the-map) • [💬 Final Thoughts](#-final-thoughts)
 
 <table>
 	<tr>
@@ -18,22 +18,17 @@
 
 ---
 
-## 🛠️ Technologies Used
-
-- `C`
-- `Makefile`
-- `MLX42` (external graphics library, built on top of `GLFW` and `OpenGL`)
-
----
-
 ## 📝 About the Project
 
 This is my very first graphical game, made for the 42 school curriculum. I started it with zero experience in graphics, and it shows… but that’s also what makes it fun! The real challenge was to make something that works, not something that’s pretty.
 
 I have a special attachment to it. Seeing the little terminal "You Win" line with the warning message that comes with it — made the project feel even more personal to me. It’s a little rough, a little silly, but it’s 100% mine.
 
----
+## 🛠️ Technologies Used
 
+- `C`
+- `Makefile`
+- `MLX42` (external graphics library, built on top of `GLFW` and `OpenGL`)
 
 ## 🚀 How to Install
 
