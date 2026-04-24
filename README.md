@@ -1,18 +1,28 @@
 
 # 🎮 so_long: My First Game
 
+[Technologies Used](#️-technologies-used) • [About the Project](#-about-the-project) • [How to Install](#-how-to-install) • [How to Play](#️-how-to-play) • [How to Uninstall](#-how-to-uninstall) • [How to Edit the Map](#️-how-to-edit-the-map) • [Final Thoughts](#-final-thoughts)
+
 <table>
 	<tr>
 		<td align="center">
-			<img src="img/gameplay_demo.gif" alt="so_long gameplay demo" height="320" />
+			<img src="img/gameplay_demo.gif" alt="so_long gameplay demo" height="320" valign="middle"/>
 		</td>
 		<td align="center">
-			<img src="img/42_grade_125.png" alt="Success 125/100" height="320" />
+			<img src="img/42_grade_125.png" alt="Success 125/100" height="320" valign="middle"/>
 		</td>
 	</tr>
 </table>
 
 > The graphics are bad, ok. But that was never the point of the project… so I got **125/100**. (And honestly, I’m kind of proud of my minimalist assets!)
+
+---
+
+## 🛠️ Technologies Used
+
+- `C`
+- `Makefile`
+- `MLX42` (external graphics library, built on top of `GLFW` and `OpenGL`)
 
 ---
 
