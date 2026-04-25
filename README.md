@@ -1,7 +1,7 @@
 
 # 🎮 so_long: My First Game
 
-[📝 About the Project](#-about-the-project) • [🛠️ Technologies Used](#️-technologies-used) • [🚀 How to Install](#-how-to-install) • [🗺️ How to Edit the Map](#️-how-to-edit-the-map) • [💬 Final Thoughts](#-final-thoughts)
+📝 [About the Project](#-about-the-project) • 🛠️ [Technologies Used](#️-technologies-used) • 🚀 [How to Install](#-how-to-install) • 🗺️ [How to Edit the Map](#️-how-to-edit-the-map) • 💬 [Final Thoughts](#-final-thoughts)
 
 <table>
 	<tr>
