@@ -48,7 +48,7 @@ That’s it! The Makefile will handle MLX42 for you. (If you’re on macOS, make
 ```bash
 ./so_long map.ber
 ```
-Move the player (the blue square) with **W, A, S, D** keys. Try to collect everything and reach the exit. If you see an enemy (Z)… good luck!
+Move the player (the blue square) with **W, A, S, D** keys. Try to collect everything and reach the exit. If you see an zenemy… good luck!
 
 
 
